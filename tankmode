@@ -23,6 +23,10 @@ void usercontrol(void){
         
         RightMotor.spin(vex::directionType::fwd, Controller1.Axis2.position(), vex::velocityUnits::pct);
         LeftMotor.spin(vex::directionType::fwd, Controller1.Axis3.position(), vex::velocityUnits::pct);
+        
+        //normal mode
+        LeftWheel.spin(forward,(Controller1.Axis4.value() - Controller1.Axis3.value(), percentUnits::pct));
+        RightWheel.spin(forward,(Controller1.Axis4.value() - Controller1.Axis3.value(), percentUnits::pct));
 
 
         vex::task::sleep(20);
