@@ -17,26 +17,38 @@ void pre_auton(void){
     //all activities that occur before the competition starts
 
 }
+    
+//These are my functions to make it easier to write an autonomous process.
+void goFWD(int speedPct, int taskSleep){
+    RightMotor.spin(forward,speedPct,pct);
+    LeftMotor.spin(reverse,speedPct,pct);
+    task::sleep(taskSleep);
+    RightMotor.stop(brakeType::brake);
+    LeftMotor.stop(brakeType::brake);
+}
+void goREV(int speedPct, int taskSleep){
+    RightMotor.spin(reverse,speedPct,pct);
+    LeftMotor.spin(forward,speedPct,pct);
+    task::sleep(taskSleep);
+    RightMotor.stop(brakeType::brake);
+    LeftMotor.stop(brakeType::brake);
+}
+void turnL(int deg){
+    LeftMotor.spinFor(directionType::forward,deg,rotationUnits::degrees);
+}
+void turnR(int deg){
+    RightMotor.spinFor(directionType::forward,deg,rotationUnits::degrees);    
+}
+//These are my functions to make it easier to write an autonomous process.
 
 void autonomus(void){
-
-    //move forward
-    LeftMotor.startRotateFor(vex::directionType::fwd,1000,vex::rotationUnits::deg);
-    RightMotor.rotateFor(vex::directionType::fwd,1000,vex::rotationUnits::deg);
-    //turn left
-
-    //move forward
-    LeftMotor.startRotateFor(vex::directionType::fwd,1000,vex::rotationUnits::deg);
-    RightMotor.rotateFor(vex::directionType::fwd,1000,vex::rotationUnits::deg);
-    //turn left
-    
-    //move forward
-    LeftMotor.startRotateFor(vex::directionType::fwd,1000,vex::rotationUnits::deg);
-    RightMotor.rotateFor(vex::directionType::fwd,1000,vex::rotationUnits::deg);
-
-
-
-
+    goFWD(60,1500);
+    turnR(700);
+    goFWD(60,2000);
+    ArmLiftMotor.spin(forward,50,velocityUnits::pct);
+    task::sleep(1000);
+    ArmLiftMotor.stop(brakeType::hold);
+    goREV(30,1500);
 }
 
 void usercontrol(void){
