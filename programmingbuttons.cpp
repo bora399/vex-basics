@@ -27,7 +27,7 @@ void usercontrol(void){
     int ArmSpeedPercent = 100;
     while(1){
         
-        //drive program
+        //drive program (it's just a tank mode, if you want some details about normal mode, you can check my coding_analog_sticks.cpp file)
         RightMotor.spin(vex::directionType::fwd, Controller1.Axis2.position(), vex::velocityUnits::pct);
         LeftMotor.spin(vex::directionType::fwd, Controller1.Axis3.position(), vex::velocityUnits::pct);
 
