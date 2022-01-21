@@ -21,10 +21,10 @@ void autonomus(void){
 void usercontrol(void){
     while(1){
         //tank mode
-        RightMotor.spin(vex::directionType::fwd, Controller1.Axis2.position(), vex::velocityUnits::pct);
-        LeftMotor.spin(vex::directionType::fwd, Controller1.Axis3.position(), vex::velocityUnits::pct);
+        //RightMotor.spin(vex::directionType::fwd, Controller1.Axis2.position(), vex::velocityUnits::pct);
+        //LeftMotor.spin(vex::directionType::fwd, Controller1.Axis3.position(), vex::velocityUnits::pct);
         
-        //normal analog sticks mode with if-else statements
+        //normal analog sticks mode with if-else statements (actually i always prefer this :) )
         if(Controller1.Axis3.position(pct) != 0){
             LeftWheel.spin(forward,Controller1.Axis3.position(),pct);
             RightWheel.spin(forward,Controller1.Axis3.position(),pct);
