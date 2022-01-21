@@ -1,2 +1,2 @@
 # vex-basics
-all about vex v5 text coding basics 
+A lot of things about vex coding basics, good for beginners!
